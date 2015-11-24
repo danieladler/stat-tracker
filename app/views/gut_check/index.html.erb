@@ -1,6 +1,9 @@
-<h1>GutCheck</h1>
+<div class="header">
+  <h1>GutCheck</h1>
+</div>
 
-<h2>List of all data:</h2>
+<div class="content-body">
+  <h2>List of all data:</h2>
 
   <% @all_checks.each do |g| %>
     <div>
@@ -26,7 +29,7 @@
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="Delete this GutCheck" data-confirm:"Are you sure?">
     </form>
-    
+
     <br>
     <br>
   <% end %>
@@ -42,3 +45,8 @@
         <br>
         <input type="submit" value="Submit New GutCheck">
     </form>
+</div>
+
+<div class="footer">
+  
+</div>

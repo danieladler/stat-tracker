@@ -1,11 +1,31 @@
 body {
   font-family: "Helvetica";
-  background-color: rgba(0, 0, 0, 0.5)
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 0;
 }
 
-h1 {
-  text-decoration: underline;
+.header {
+  margin: 0 auto;
+  height: 100px;
+  width: 100%;
+  display: block;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
 }
+
+.header h1 {
+    text-decoration: underline;
+    font-size: 60px;
+    margin: 10px 80px;
+    position: relative;
+    float: left;
+}
+
+.page-content {
+  height: calc(100vh - 90px);
+  display: block;
+}
+
 
 h2 {
 
