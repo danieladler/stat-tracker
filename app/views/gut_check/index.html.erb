@@ -3,38 +3,48 @@
 </div>
 
 <div class="content-body">
-  <h2>List of all data:</h2>
+    <table id="table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Rating</th>
+          <th>Comment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @all_checks.each do |g| %>
+        <tr>
+          <th> <%= g.created_at.localtime.strftime("%m/%d").downcase %></th>
+          <td> <%= g.created_at.localtime.strftime("%l:%M%p").downcase %></th>
+          <td> <%= g.overall    %></td>
+          <td> <%= g.adjective  %></td>
+          <td>
+            <form action="/<%= g.id %>" method="POST">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" value="Delete this GutCheck" data-confirm:"Are you sure?">
+            </form>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
 
-  <% @all_checks.each do |g| %>
-    <div>
-        GutCheck created at: <%= g.created_at %>
+      <% if @gut_check.errors.any? %>
+        <% @gut_check.errors.each do |column, message| %>
           <ul>
-            <li>Rating:      <%= g.overall %></li>
-            <li>Comment:     <%= g.adjective %></li>
+            <li>
+              <strong>Section <%= column.capitalize %>:</strong> <%= message %>
+            </li>
           </ul>
-    </div>
-
-    <% if @gut_check.errors.any? %>
-      <% @gut_check.errors.each do |column, message| %>
-        <ul>
-          <li>
-            <strong>Section <%= column.capitalize %>:</strong> <%= message %>
-          </li>
-        </ul>
+        <% end %>
       <% end %>
-    <% end %>
-
-    <form action="/<%= g.id %>" method="POST">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete this GutCheck" data-confirm:"Are you sure?">
-    </form>
+    </table>
 
     <br>
     <br>
-  <% end %>
 
-  <h2>Submit a new GutCheck</h2>
+    <h2>Submit a new GutCheck</h2>
     <form action="/" method="POST">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
         <label for="rating">Rating:</label>
@@ -45,8 +55,9 @@
         <br>
         <input type="submit" value="Submit New GutCheck">
     </form>
-</div>
+  </div>
+
 
 <div class="footer">
-  
+
 </div>
