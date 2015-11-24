@@ -5,10 +5,6 @@ class GutCheckController < ApplicationController
     @gut_check              = GutCheck.new
   end
 
-  def new
-    @gut_check              = GutCheck.new
-  end
-
   def add_stat
     @gut_check              = GutCheck.new
     @gut_check.overall      = params[:rating]
@@ -16,13 +12,15 @@ class GutCheckController < ApplicationController
     if @gut_check.save
       redirect_to home_path
     else
-      @all_checks = GutCheck.all
-      render "/gut-checks/new"
+      @all_checks           = GutCheck.all
+      render :index
     end
   end
 
   def remove_stat
-
+    @gut_check              = GutCheck.find(params[:id])
+    @gut_check.destroy
+    redirect_to home_path
   end
 
 end
