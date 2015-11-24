@@ -1,63 +1,62 @@
-<div class="header">
-  <h1>GutCheck</h1>
-</div>
-
-<div class="content-body">
-    <table id="table">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Rating</th>
-          <th>Comment</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @all_checks.each do |g| %>
-        <tr>
-          <th> <%= g.created_at.localtime.strftime("%m/%d").downcase %></th>
-          <td> <%= g.created_at.localtime.strftime("%l:%M%p").downcase %></th>
-          <td> <%= g.overall    %></td>
-          <td> <%= g.adjective  %></td>
-          <td>
-            <form action="/<%= g.id %>" method="POST">
-              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-              <input type="hidden" name="_method" value="DELETE">
-              <input type="submit" value="Delete this GutCheck" data-confirm:"Are you sure?">
-            </form>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-
-      <% if @gut_check.errors.any? %>
-        <% @gut_check.errors.each do |column, message| %>
-          <ul>
-            <li>
-              <strong>Section <%= column.capitalize %>:</strong> <%= message %>
-            </li>
-          </ul>
-        <% end %>
-      <% end %>
-    </table>
-
-    <br>
-    <br>
-
-    <h2>Submit a new GutCheck</h2>
-    <form action="/" method="POST">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-        <label for="rating">Rating:</label>
-        <input type="float" id="rating" name="rating" placeholder="required"></input>
-        <br>
-        <label for="comment">Comment:</label>
-        <input type="text" id="comment" name="comment" placeholder="optional"></input>
-        <br>
-        <input type="submit" value="Submit New GutCheck">
-    </form>
+  <div class="header">
+    <h1>GutCheck</h1>
   </div>
 
+<div class="container_12 clearfix">
+  <table id="table" class="grid_12 table collapse">
+    <thead class="grid_12 table-head">
+      <tr>
+        <th class="grid_2">Date</th>
+        <th class="grid_2">Time</th>
+        <th class="grid_2">Rating</th>
+        <th class="grid_4">Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @all_checks.each do |g| %>
+      <tr class="row">
+        <th class="grid_2"> <%= g.created_at.localtime.strftime("%m/%d").downcase %></th>
+        <td class="grid_2"> <%= g.created_at.localtime.strftime("%l:%M%p").downcase %></th>
+        <td class="grid_2"> <%= g.overall    %></td>
+        <td class="grid_4"> <%= g.adjective  %></td>
+        <td class="grid_1">
+          <form action="/<%= g.id %>" method="POST">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete" data-confirm:"Are you sure?">
+          </form>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
 
-<div class="footer">
+    <% if @gut_check.errors.any? %>
+      <% @gut_check.errors.each do |column, message| %>
+        <ul>
+          <li>
+            <strong>Section <%= column.capitalize %>:</strong> <%= message %>
+          </li>
+        </ul>
+      <% end %>
+    <% end %>
+  </table>
+
+  <div class="grid_6 push_3 submit-container">
+    <h2>Submit a new GutCheck</h2>
+    <div class="submit-form-container">
+      <form action="/" method="POST">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+          <label for="rating">Rating:</label>
+          <input type="float" id="rating" name="rating" placeholder="required"></input>
+          <label for="comment">Comment:</label>
+          <input type="text" id="comment" name="comment" placeholder="optional"></input>
+          <input type="submit" value="Submit New GutCheck" class="button">
+      </form>
+    </div>
+  </div>
 
 </div>
+
+  <div class="footer">
+    <h2>FooterFooterFooter</h2>
+  </div>
