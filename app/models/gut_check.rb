@@ -1,4 +1,4 @@
 class GutCheck < ActiveRecord::Base
-  validates :overall, presence: true
+  validates :overall, presence: true, numericality: true
 
 end

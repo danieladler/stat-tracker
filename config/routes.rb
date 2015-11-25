@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get  "/"                             , to: "gut_check#index"    , as: :home
+  get  "/"                             , to: "gut_check#index"    , as: :gut_checks
   post "/"                             , to: "gut_check#add_stat"
   delete "/:id"                        , to: "gut_check#remove_stat"
 

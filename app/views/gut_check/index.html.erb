@@ -1,6 +1,8 @@
-  <div class="header">
-    <h1>GutCheck</h1>
+<div class="header">
+  <div class="header-container">
+    <h1> GutCheck</h1>
   </div>
+</div>
 
 <div class="container_12 clearfix">
   <table id="table" class="grid_12 table collapse">
@@ -43,19 +45,23 @@
 
   <div class="grid_6 push_3 submit-container">
     <h2>Submit a new GutCheck</h2>
-    <div class="submit-form-container">
-      <form action="/" method="POST">
-          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-          <label for="rating">Rating:</label>
-          <input type="float" id="rating" name="rating" placeholder="required"></input>
-          <label for="comment">Comment:</label>
-          <input type="text" id="comment" name="comment" placeholder="optional"></input>
-          <input type="submit" value="Submit New GutCheck" class="button">
-      </form>
-    </div>
-  </div>
 
-</div>
+      <div class="submit-form-container">
+        <%= form_for @gut_check do |f| %>
+          <div>
+            <%= f.label      :overall %>
+            <%= f.text_field :overall %>
+          </div>
+          <div>
+            <%= f.label      :adjective %>
+            <%= f.text_field :adjective %>
+            <%= f.submit %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
 
   <div class="footer">
     <h2>FooterFooterFooter</h2>

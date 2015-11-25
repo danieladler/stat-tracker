@@ -5,7 +5,6 @@ body {
 }
 
 .header {
-  margin: 0 auto;
   height: 90px;
   width: 100%;
   display: block;
@@ -16,15 +15,22 @@ body {
   z-index: 3;
 }
 
+.header .header-container {
+  margin: 0 auto;
+  width: 960px;
+}
+
 .header h1 {
     font-size: 60px;
-    margin: 10px 80px;
+    margin: 10px 0;
     position: relative;
     float: left;
+    text-align: left;
 }
 
 .container_12 {
   // margin-top: 90px;
+  padding-top: 10px;
 }
 
 .table {
@@ -35,10 +41,14 @@ body {
   border-collapse: collapse;
 }
 
+.table {
+
+}
 
 .table th, .table td {
     padding: 10px 0;
     text-align: center;
+
   }
 
   tr {
@@ -56,6 +66,7 @@ body {
   }
 
 .submit-container {
+  margin-top: 30px;
   padding-bottom: 10px;
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
@@ -63,6 +74,7 @@ body {
 .submit-container h2 {
   position: relative;
   text-align: center;
+  color: white;
 }
 
 .submit-form-container {
@@ -80,7 +92,7 @@ body {
 
 .footer {
   margin: 0 auto;
-  height: 90px;
+  height: 120px;
   width: 100%;
   display: block;
   background-color: white;
