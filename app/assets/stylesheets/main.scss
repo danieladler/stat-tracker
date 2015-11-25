@@ -65,29 +65,44 @@ body {
     margin-left: 0;
   }
 
+  .edit-form .edit-toggler {
+    display: block;
+  }
+
+  .edit-form form {
+    display: none;
+  }
+
+  .edit-form.editing .edit-toggler {
+    display: none;
+  }
+
+  .edit-form.editing form {
+    display: block;
+  }
+
 .submit-container {
   margin-top: 30px;
   padding-bottom: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  // border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .submit-container h2 {
   position: relative;
   text-align: center;
   color: white;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 10px 0;
 }
 
 .submit-form-container {
-  width: 33%;
+  width: 80%;
   margin: 0 auto;
 }
 
 .submit-form-container input {
   margin: 5px 0;
-}
-
-.submit-form-container input.button {
-  padding: 0 0;
+  margin-left: 20px;
 }
 
 .footer {

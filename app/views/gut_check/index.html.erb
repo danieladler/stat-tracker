@@ -8,21 +8,32 @@
   <table id="table" class="grid_12 table collapse">
     <thead class="grid_12 table-head">
       <tr>
-        <th class="grid_2">Date</th>
-        <th class="grid_2">Time</th>
-        <th class="grid_2">Rating</th>
-        <th class="grid_4">Comment</th>
+        <th class="grid_1">Date</th>
+        <th class="grid_1">Time</th>
+        <th class="grid_1">Rating</th>
+        <th class="grid_3">Comment</th>
       </tr>
     </thead>
     <tbody>
       <% @all_checks.each do |g| %>
       <tr class="row">
-        <th class="grid_2"> <%= g.created_at.localtime.strftime("%m/%d").downcase %></th>
-        <td class="grid_2"> <%= g.created_at.localtime.strftime("%l:%M%p").downcase %></th>
-        <td class="grid_2"> <%= g.rating    %></td>
-        <td class="grid_4"> <%= g.comment  %></td>
+        <th class="grid_1"> <%= g.created_at.localtime.strftime("%m/%d").downcase %></th>
+        <td class="grid_1"> <%= g.created_at.localtime.strftime("%l:%M%p").downcase %></th>
+        <td class="grid_1"> <%= g.rating    %></td>
+        <td class="grid_3"> <%= g.comment  %></td>
+        <td class="grid_2 edit-form" >
+          <a href=# class="edit-toggler">edit</a>
+          <form action="/<%=g.id%>" method="POST">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+              <input type="hidden" name="_method"            value="PATCH">
+              <input type="text"   name="gut_check[rating]"  value=" <%= g.rating %>">
+              <input type="text"   name="gut_check[comment]" value=" <%= g.comment %>">
+              <input type="submit" value="Update">
+              <input type='button' value="Cancel" class="cancel">
+            </form>
+        </td>
         <td class="grid_1">
-          <form action="/<%= g.id %>" method="POST">
+          <form action="/<%=g.id%>" method="POST">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
             <input type="hidden" name="_method" value="DELETE">
             <input type="submit" value="Delete" data-confirm:"Are you sure?">
@@ -43,8 +54,8 @@
     <% end %>
   </table>
 
-  <div class="grid_6 push_3 submit-container">
-    <h2>Submit a new GutCheck</h2>
+  <div class="grid_4 push_4 submit-container">
+    <h2 class="submit-toggler">Submit a new GutCheck</h2>
 
       <div class="submit-form-container">
         <%= form_for @gut_check do |f| %>

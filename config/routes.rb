@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  get  "/"                             , to: "gut_check#index"    , as: :gut_checks
-  post "/"                             , to: "gut_check#add_stat"
+  get    "/"                           , to: "gut_check#index"    , as: :gut_checks
+  post   "/"                           , to: "gut_check#add_stat"
+  patch  "/:id"                        , to: "gut_check#edit_stat"
   delete "/:id"                        , to: "gut_check#remove_stat"
 
   # The priority is based upon order of creation: first created -> highest priority.
