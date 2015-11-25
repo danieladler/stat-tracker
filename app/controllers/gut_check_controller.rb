@@ -7,8 +7,8 @@ class GutCheckController < ApplicationController
 
   def add_stat
     @gut_check              = GutCheck.new
-    @gut_check.overall      = params[:gut_check][:overall]
-    @gut_check.adjective    = params[:gut_check][:adjective]
+    @gut_check.rating      = params[:gut_check][:rating]
+    @gut_check.comment    = params[:gut_check][:comment]
     if @gut_check.save
       redirect_to gut_checks_path
     else

@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123220751) do
+ActiveRecord::Schema.define(version: 20151125005029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "gut_checks", force: :cascade do |t|
-    t.float    "overall"
-    t.text     "adjective"
+    t.float    "rating"
+    t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,8 +1,8 @@
 class CreateGutChecks < ActiveRecord::Migration
   def change
     create_table :gut_checks do |t|
-      t.float :overall
-      t.text :adjective
+      t.float :rating
+      t.text :comment
 
       t.timestamps null: false
     end
