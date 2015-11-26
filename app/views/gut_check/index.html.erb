@@ -8,19 +8,19 @@
   <table id="table" class="grid_12 table collapse">
     <thead class="grid_12 table-head">
       <tr>
-        <th class="grid_1">Date</th>
-        <th class="grid_1">Time</th>
-        <th class="grid_1">Rating</th>
-        <th class="grid_3">Comment</th>
+        <th class="grid_1 date-column">Date</th>
+        <th class="grid_1 time-column">Time</th>
+        <th class="grid_1 rating-column">Rating</th>
+        <th class="grid_3 comment-column">Comment</th>
       </tr>
     </thead>
     <tbody>
       <% @all_checks.each do |g| %>
       <tr class="row">
-        <th class="grid_1"> <%= g.created_at.localtime.strftime("%m/%d").downcase %></th>
-        <td class="grid_1"> <%= g.created_at.localtime.strftime("%l:%M%p").downcase %></th>
-        <td class="grid_1"> <%= g.rating    %></td>
-        <td class="grid_3"> <%= g.comment  %></td>
+        <th class="grid_1 date-row">    <%= g.created_at.localtime.strftime("%m/%d").downcase %></th>
+        <td class="grid_1 time-row">    <%= g.created_at.localtime.strftime("%l:%M%p").downcase %></th>
+        <td class="grid_1 rating-row">  <%= g.rating    %></td>
+        <td class="grid_4 comment-row"> <%= g.comment  %></td>
         <td class="grid_2 edit-form" >
           <a href=# class="edit-toggler">edit</a>
           <form action="/<%=g.id%>" method="POST">
@@ -36,22 +36,15 @@
           <form action="/<%=g.id%>" method="POST">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
             <input type="hidden" name="_method" value="DELETE">
-            <input type="submit" value="Delete" data-confirm:"Are you sure?">
+            <input type="submit" class="delete-button" value="Delete" data-confirm:"Are you sure?">
           </form>
         </td>
       </tr>
       <% end %>
     </tbody>
 
-    <% if @gut_check.errors.any? %>
-      <% @gut_check.errors.each do |column, message| %>
-        <ul>
-          <li>
-            <strong>Section <%= column.capitalize %>:</strong> <%= message %>
-          </li>
-        </ul>
-      <% end %>
-    <% end %>
+
+
   </table>
 
   <div class="grid_4 push_4 submit-container">
@@ -68,6 +61,18 @@
             <%= f.text_field :comment %>
             <%= f.submit %>
           </div>
+        <% end %>
+
+      </div>
+      <div class="errors">
+        <% if @gut_check.errors.any? %>
+          <% @gut_check.errors.each do |column, message| %>
+            <ul class="error-list" id=error-anchor>
+              <li>
+                <strong>Section <%= column.capitalize %>:</strong> <%= message %>
+              </li>
+            </ul>
+          <% end %>
         <% end %>
       </div>
     </div>
