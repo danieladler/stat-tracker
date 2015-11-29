@@ -4,7 +4,31 @@ body {
   margin: 0;
 }
 
-.header {
+input[type=submit] {
+  border: none;
+  color: black;
+  background-color: rgba(0, 0, 0, 0.03);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+input[type=button] {
+  border: none;
+  color: black;
+  background-color: rgba(0, 0, 0, 0.03);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+input[type=button]:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.page-header {
   height: 90px;
   width: 100%;
   display: block;
@@ -15,12 +39,12 @@ body {
   z-index: 3;
 }
 
-.header .header-container {
+.page-header .header-container {
   margin: 0 auto;
   width: 960px;
 }
 
-.header h1 {
+.page-header h1 {
     font-size: 60px;
     margin: 10px 0;
     position: relative;
@@ -34,7 +58,7 @@ body {
 }
 
 .table {
-  font-family: "gill sans";
+  font-family: "Gill Sans";
 }
 
 #table {
@@ -43,7 +67,6 @@ body {
 
 .table-head {
   text-transform: uppercase;
-  // border-bottom: 2px solid rgba(0, 0, 0, 0.9);
   margin-left: 0;
 }
 
@@ -52,6 +75,16 @@ body {
     text-align: center;
     font-weight: normal;
   }
+
+  #table .sort-button {
+    height: 10px;
+  }
+
+    th.header {
+        cursor: pointer;
+        height: 100%;
+        background-color: none;
+    }
 
   tr {
 
@@ -76,6 +109,18 @@ body {
   .edit-toggler {
     text-decoration: none;
     color: black;
+    background-color: rgba(0, 0, 0, 0.03);
+    font-size: 12px;
+    position: relative;
+    top: 1px;
+    left: 33%;
+    width: 40px;
+    height: 19px;
+    line-height: 20px
+  }
+
+  .edit-toggler:hover {
+    background-color: rgba(0, 0, 0, 0.4);
   }
 
   .edit-form .edit-toggler {
@@ -97,6 +142,10 @@ body {
 .submit-container {
   margin-top: 30px;
   padding-bottom: 10px;
+}
+
+.submit-container h2:hover {
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .submit-container h2 {

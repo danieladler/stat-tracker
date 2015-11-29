@@ -1,14 +1,14 @@
-<div class="header">
+<div class="page-header">
   <div class="header-container">
     <h1> GutCheck</h1>
   </div>
 </div>
 
 <div class="container_12 clearfix">
-  <table id="table" class="grid_12 table collapse">
+  <table id="table" class="grid_12 table collapse tablesorter">
     <thead class="grid_12 table-head">
       <tr>
-        <th class="grid_1 date-column">Date</th>
+        <th class="grid_1 date-column" id="sort">Date <%= image_tag("sort.png", class: "sort-button") %></th>
         <th class="grid_1 time-column">Time</th>
         <th class="grid_1 rating-column">Rating</th>
         <th class="grid_3 comment-column">Comment</th>
@@ -22,7 +22,7 @@
         <td class="grid_1 rating-row">  <%= g.rating    %></td>
         <td class="grid_4 comment-row"> <%= g.comment  %></td>
         <td class="grid_2 edit-form" >
-          <a href=# class="edit-toggler">edit</a>
+          <a href=# class="edit-toggler">Edit</a>
           <form action="/<%=g.id%>" method="POST">
               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
               <input type="hidden" name="_method"            value="PATCH">
@@ -59,7 +59,7 @@
           <div>
             <%= f.label      :comment %>
             <%= f.text_field :comment %>
-            <%= f.submit %>
+            <%= f.submit id: :submit_gc %>
           </div>
         <% end %>
 
