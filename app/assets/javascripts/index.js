@@ -11,17 +11,17 @@ $(document).ready(function() {
     });
 
 // edit toggler & cancel -> show/hide edit form via CSS class switching
-  $(".edit-toggler").click(function () {
-    $(this).parent().toggleClass("editing");
-  });
+    $(".edit-toggler").click(function () {
+      $(this).parent().toggleClass("editing", 1000, "easeOutSine");
+    });
 
-  $(".cancel").click(function () {
-    $(this).parent().parent().toggleClass("editing");
-  });
+    $(".cancel").click(function () {
+      $(this).parent().parent().toggleClass("editing", 1000, "easeOutSine");
+    });
 
 // submit toggler -> click to open submit form
   $(".submit-toggler").click(function () {
-    $(".submit-form-container").slideToggle(450, function() {
+      $(".submit-form-container").slideToggle(450, function() {
     });
   });
 

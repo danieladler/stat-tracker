@@ -50,6 +50,7 @@ input[type=button]:hover {
     position: relative;
     float: left;
     text-align: left;
+    left: 8px;
 }
 
 .container_12 {
@@ -57,26 +58,29 @@ input[type=button]:hover {
   padding-top: 10px;
 }
 
-.table {
+#table {
   font-family: "Gill Sans";
 }
 
-#table {
-
-}
-
-.table-head {
+#table thead {
   text-transform: uppercase;
-  margin-left: 0;
+  padding-bottom: 0;
 }
 
-#table th, .table td {
-    padding: 10px 0;
+#table th {
+  font-weight: normal;
+  padding-left: 0;
+  padding-bottom: 15px;
+}
+
+#table td {
     text-align: center;
     font-weight: normal;
+    // padding-top: 10px;
+    padding-bottom: 15px;
   }
 
-  #table .sort-button {
+  table .sort-button {
     height: 10px;
   }
 
@@ -86,14 +90,6 @@ input[type=button]:hover {
         background-color: none;
     }
 
-  tr {
-
-  }
-
-  td {
-
-  }
-
   #table .comment-column {
     text-align: left;
   }
@@ -102,7 +98,7 @@ input[type=button]:hover {
     text-align: left;
   }
 
-  #table .delete-button {
+  table .delete-button {
     font-family: "gill sans"
   }
 
@@ -111,21 +107,18 @@ input[type=button]:hover {
     color: black;
     background-color: rgba(0, 0, 0, 0.03);
     font-size: 12px;
-    position: relative;
-    top: 1px;
-    left: 33%;
+    left: 43%;
     width: 40px;
     height: 19px;
-    line-height: 20px
+    line-height: 20px;
+    position: relative;
+    margin: 0 auto;
   }
 
   .edit-toggler:hover {
     background-color: rgba(0, 0, 0, 0.4);
   }
 
-  .edit-form .edit-toggler {
-    display: block;
-  }
 
   .edit-form form {
     display: none;
