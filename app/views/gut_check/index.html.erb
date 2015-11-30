@@ -39,10 +39,15 @@
             <input type="submit" class="delete-button" value="Delete" data-confirm:"Are you sure?">
           </form>
         </td>
-      </tr>
       <% end %>
+      </tr>
+      <td class="grid_2">
+        <strong>Average Rating:</strong>
+      </td>
+      <td class="grid_1 average">
+        <%= @all_averages %>
+      </td>
     </tbody>
-
 
 
   </table>
@@ -76,8 +81,8 @@
         <% end %>
       </div>
     </div>
-
   </div>
+
 
   <!-- <div class="footer">
     <h2>FooterFooterFooter</h2>

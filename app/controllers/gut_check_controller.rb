@@ -3,6 +3,7 @@ class GutCheckController < ApplicationController
   def index
     @all_checks             = GutCheck.all
     @gut_check              = GutCheck.new
+    @all_averages           = average_stat
   end
 
   def add_stat
@@ -15,6 +16,14 @@ class GutCheckController < ApplicationController
       @all_checks           = GutCheck.all
       render :index
     end
+  end
+
+  def average_stat
+    @rating_array           = []
+    @all_checks.each do |g|
+      @rating_array << g.rating
+    end
+    @all_averaged           = (@rating_array.sum / @rating_array.count).round(2)
   end
 
   def edit_stat
